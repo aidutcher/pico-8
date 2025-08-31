@@ -8,7 +8,6 @@ function make_ship()
 		spdx=2,
 		spdy=2
 	}
-	bullets = {}
 end
 
 function move_ship()
@@ -30,11 +29,13 @@ function move_ship()
 	-- move left by subtracting
 	-- speed from x position
 	if btn(0) then
+		ship.sprite=2
 		ship.x-=ship.spdx
 	end
 	-- move right by adding 
 	-- speed to x position
 	if btn(1) then
+		ship.sprite=3
 		ship.x+=ship.spdx
 	end
 	-- move up by subtracting
@@ -51,4 +52,25 @@ end
 
 function draw_ship()
 	spr(ship.sprite,ship.x,ship.y)
+end
+
+function make_jets()
+	jets = {
+		sprite=5,
+		x = ship.x,
+		y = ship.y+8
+	}
+end
+
+function upd_jets()
+	jets.sprite+=1
+	jets.x = ship.x
+	jets.y = ship.y+8
+	if jets.sprite > 9  then
+		jets.sprite=5
+	end
+end 
+
+function draw_jets()
+	spr(jets.sprite, jets.x, jets.y)
 end
