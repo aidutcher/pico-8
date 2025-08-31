@@ -7,6 +7,7 @@ function add_blt()
 	    speed = 8  -- example speed
 	  }
 	  add(blts, bullet)
+	  sfx(0)
 	 end
 end
 
